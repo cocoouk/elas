@@ -27,7 +27,6 @@ function sendMessage() {
     });
 }
 
-// Capture GDrive Links Click Event
 document.addEventListener('DOMContentLoaded', () => {
     const gdriveLinks = document.querySelectorAll('.gdrive-link');
     gdriveLinks.forEach(link => {
@@ -39,4 +38,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-    
