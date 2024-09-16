@@ -1,8 +1,7 @@
-
 import os
 import json
 import logging
-from flask import Flask, jsonify, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, jsonify
 from pymongo import MongoClient
 from notion_client import Client
 from google.oauth2 import service_account
@@ -76,30 +75,4 @@ def index():
 
 @app.route('/gdrive')
 def gdrive():
-    if not drive_service:
-        return render_template('error.html', message="Google Drive service not available"), 503
-    try:
-        results = drive_service.files().list(pageSize=10, fields="files(id, name, webViewLink)").execute()
-        files = results.get('files', [])
-        return render_template('gdrive.html', files=files)
-    except Exception as e:
-        logger.error(f"Error fetching Google Drive files: {str(e)}")
-        return render_template('error.html', message="Failed to fetch Google Drive files"), 500
-
-@app.route('/gdrive_links')
-def gdrive_links():
-    links = [
-        {"name": "File 1", "url": "https://drive.google.com/file1"},
-        {"name": "File 2", "url": "https://drive.google.com/file2"}
-    ]
-    return render_template('gdrive_links.html', gdrive_links=links)
-
-@app.route('/chat', methods=['POST'])
-@limiter.limit("30 per minute")
-def chat():
-    user_message = request.form.get('message', '')
-    response = f"You said: {user_message}"
-    return jsonify({"response": response})
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080, debug=True)
+    if not drive_service &#8203;:contentReference[oaicite:0]{index=0}&#8203;
